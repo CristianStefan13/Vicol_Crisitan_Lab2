@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Vicol_Crisitan_Lab2.Data;
 
@@ -11,9 +12,10 @@ using Vicol_Crisitan_Lab2.Data;
 namespace Vicol_Crisitan_Lab2.Migrations
 {
     [DbContext(typeof(Vicol_Crisitan_Lab2Context))]
-    partial class Vicol_Crisitan_Lab2ContextModelSnapshot : ModelSnapshot
+    [Migration("20221105132225_BookCategory2")]
+    partial class BookCategory2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -140,7 +142,7 @@ namespace Vicol_Crisitan_Lab2.Migrations
             modelBuilder.Entity("Vicol_Crisitan_Lab2.Models.Book", b =>
                 {
                     b.HasOne("Vicol_Crisitan_Lab2.Models.Author", "Author")
-                        .WithMany("Books")
+                        .WithMany()
                         .HasForeignKey("AuthorID");
 
                     b.HasOne("Vicol_Crisitan_Lab2.Models.Publisher", "Publisher")
@@ -169,11 +171,6 @@ namespace Vicol_Crisitan_Lab2.Migrations
                     b.Navigation("Book");
 
                     b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("Vicol_Crisitan_Lab2.Models.Author", b =>
-                {
-                    b.Navigation("Books");
                 });
 
             modelBuilder.Entity("Vicol_Crisitan_Lab2.Models.Book", b =>
