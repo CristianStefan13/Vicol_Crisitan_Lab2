@@ -7,8 +7,19 @@ namespace Vicol_Crisitan_Lab2.Models
     {
         public int ID { get; set; }
 
-        [Display(Name = "Author")]
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        [Display(Name = "Full Name")]
+        public string FullName
+        {
+            get
+            {
+                return FirstName + " " + LastName;
+            }
+        }
+        public ICollection<Book>? Books { get; set; }
+
     }
+
+
 }
