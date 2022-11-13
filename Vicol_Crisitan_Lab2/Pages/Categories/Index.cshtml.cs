@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Vicol_Crisitan_Lab2.Data;
 using Vicol_Crisitan_Lab2.Models;
+using Vicol_Crisitan_Lab2.Models.ViewModels;
 
 namespace Vicol_Crisitan_Lab2.Pages.Categories
 {
@@ -19,7 +20,7 @@ namespace Vicol_Crisitan_Lab2.Pages.Categories
             _context = context;
         }
 
-        public IList<BookCategory> BookCategory { get;set; } = default!;
+        public IList<BookCategory> BookCategory { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
@@ -32,3 +33,4 @@ namespace Vicol_Crisitan_Lab2.Pages.Categories
         }
     }
 }
+

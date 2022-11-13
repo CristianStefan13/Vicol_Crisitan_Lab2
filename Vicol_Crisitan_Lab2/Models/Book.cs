@@ -22,6 +22,9 @@ namespace Vicol_Crisitan_Lab2.Models
 
         public Publisher? Publisher { get; set; }
 
+        public int? CategoryID { get; set; }
+        public Category? Category { get; set; }
+
         public ICollection<BookCategory>? BookCategories { get; set; }
 
 

@@ -54,8 +54,11 @@ namespace Vicol_Crisitan_Lab2.Migrations
                     b.Property<int?>("AuthorID")
                         .HasColumnType("int");
 
+                    b.Property<int?>("CategoryID")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(6,2)");
 
                     b.Property<int?>("PublisherID")
                         .HasColumnType("int");
@@ -70,6 +73,8 @@ namespace Vicol_Crisitan_Lab2.Migrations
                     b.HasKey("ID");
 
                     b.HasIndex("AuthorID");
+
+                    b.HasIndex("CategoryID");
 
                     b.HasIndex("PublisherID");
 
@@ -143,11 +148,17 @@ namespace Vicol_Crisitan_Lab2.Migrations
                         .WithMany("Books")
                         .HasForeignKey("AuthorID");
 
+                    b.HasOne("Vicol_Crisitan_Lab2.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryID");
+
                     b.HasOne("Vicol_Crisitan_Lab2.Models.Publisher", "Publisher")
                         .WithMany("Books")
                         .HasForeignKey("PublisherID");
 
                     b.Navigation("Author");
+
+                    b.Navigation("Category");
 
                     b.Navigation("Publisher");
                 });
