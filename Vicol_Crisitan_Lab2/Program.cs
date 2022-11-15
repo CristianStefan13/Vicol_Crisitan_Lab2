@@ -2,22 +2,21 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Vicol_Crisitan_Lab2.Data;
 using Microsoft.AspNetCore.Identity;
+using Vicol_Cristian_Lab2.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<Vicol_Crisitan_Lab2Context>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("Vicol_Cristian_Lab2Context") ?? throw new InvalidOperationException("Connection string 'Vicol_Cristian_Lab2Context' not found.")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Vicol_Crisitan_Lab2Context") ?? throw new InvalidOperationException("Connection string 'Vicol_Crisitan_Lab2Context' not found.")));
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<IdentityContext>();
+builder.Services.AddDbContext<LibraryIdentityContext>(options =>
 
-builder.Services.AddDbContext<IdentityContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("Vicol_Crisitan_Lab2Context") ?? throw new InvalidOperationException("Connection string 'Vicol_Crisitan_Lab2Context' not found.")));
 
-options.UseSqlServer(builder.Configuration.GetConnectionString("Vicol_Cristian_Lab2Context") ?? throw new InvalidOperationException("Connection string 'Vicol_Cristian_Lab2Context' not found.")));
 builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 options.SignIn.RequireConfirmedAccount = true)
- .AddEntityFrameworkStores<IdentityContext>();
+ .AddEntityFrameworkStores<LibraryIdentityContext>();
 
 
 var app = builder.Build();

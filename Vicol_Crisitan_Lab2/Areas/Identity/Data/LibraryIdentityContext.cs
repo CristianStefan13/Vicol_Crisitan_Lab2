@@ -2,11 +2,11 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace Vicol_Crisitan_Lab2.Data;
+namespace Vicol_Cristian_Lab2.Data;
 
-public class IdentityContext : IdentityDbContext<IdentityUser>
+public class LibraryIdentityContext : IdentityDbContext<IdentityUser>
 {
-    public IdentityContext(DbContextOptions<IdentityContext> options)
+    public LibraryIdentityContext(DbContextOptions<LibraryIdentityContext> options)
         : base(options)
     {
     }

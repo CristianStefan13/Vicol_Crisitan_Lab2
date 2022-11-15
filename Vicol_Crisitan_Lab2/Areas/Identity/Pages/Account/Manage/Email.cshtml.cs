@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 
-namespace Vicol_Crisitan_Lab2.Areas.Identity.Pages.Account.Manage
+namespace Vicol_Cristian_Lab2.Areas.Identity.Pages.Account.Manage
 {
     public class EmailModel : PageModel
     {

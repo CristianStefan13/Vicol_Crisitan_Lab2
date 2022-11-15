@@ -20,7 +20,7 @@ using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using Vicol_Crisitan_Lab2.Models;
 
-namespace Vicol_Crisitan_Lab2.Areas.Identity.Pages.Account
+namespace Vicol_Cristian_Lab2.Areas.Identity.Pages.Account
 {
     public class RegisterModel : PageModel
     {
@@ -32,7 +32,6 @@ namespace Vicol_Crisitan_Lab2.Areas.Identity.Pages.Account
         private readonly IEmailSender _emailSender;
         private readonly Vicol_Crisitan_Lab2.Data.Vicol_Crisitan_Lab2Context
 _context;
-
 
         public RegisterModel(
             UserManager<IdentityUser> userManager,
@@ -49,8 +48,8 @@ _context;
             _logger = logger;
             _emailSender = emailSender;
             _context = context;
-
         }
+
         [BindProperty]
         public Member Member { get; set; }
 
@@ -134,6 +133,7 @@ _context;
             if (result.Succeeded)
             {
                 _logger.LogInformation("User created a new account with password.");
+               
                 var userId = await _userManager.GetUserIdAsync(user);
                 var code = await
                _userManager.GenerateEmailConfirmationTokenAsync(user);
@@ -151,7 +151,8 @@ _context;
                },
                 protocol: Request.Scheme);
                 await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-    $"Please confirm your account by <a href = '{HtmlEncoder.Default.Encode(callbackUrl)}' > clicking here </ a >.");
+               
+                $"Please confirm your account by <a href = '{HtmlEncoder.Default.Encode(callbackUrl)}' > clicking here </ a >.");
                 if
 (_userManager.Options.SignIn.RequireConfirmedAccount)
                 {
