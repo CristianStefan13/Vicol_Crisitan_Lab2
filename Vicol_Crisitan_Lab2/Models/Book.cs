@@ -12,7 +12,12 @@ namespace Vicol_Crisitan_Lab2.Models
         [Display(Name = "Book Title")]
         public string Title { get; set; }
         [Column(TypeName = "decimal(6, 2)")]
+        [Range(0.01, 500)]
+        [Required]
+        [StringLength(150, MinimumLength = 3)]
         public decimal Price { get; set; }
+
+        [DataType(DataType.Date)]  
         public DateTime PublishingDate { get; set; }
 
         public int? AuthorID { get; set; }
